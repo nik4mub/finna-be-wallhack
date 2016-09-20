@@ -45,7 +45,7 @@ class Player(pygame.sprite.Sprite):
         self.speedx = 0
         keystate = pygame.key.get_pressed()
         if keystate[pygame.K_LEFT]:
-            self.rot = (self.rot + self.rot_speed) % 360
+            self.rot = (self.rot - self.rot_speed) % 360
             self.image = pygame.transform.rotate(self.image_orig, self.rot)
         if keystate[pygame.K_RIGHT]:
             self.rot = (self.rot + self.rot_speed) % 360
