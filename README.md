@@ -4,15 +4,15 @@ FIXES NEEDED TO BE MADE:
 
 Asteroid:
 
--> Bullets need to rotate with player
--> Menu Screen
--> Add more sound and music
--> Add levels
+-> Bullets need to rotate with player<br>
+-> Menu Screen<br>
+-> Add more sound and music<br>
+-> Add levels<br>
 
 PingPong Shooter Something:
 
--> Develop game concept. Not sure where I'm headed with it
--> Fix Bullets
--> Add sounds
--> Add characteristics to different colored Mob/enemy players
+-> Develop game concept. Not sure where I'm headed with it<br>
+-> Fix Bullets<br>
+-> Add sounds<br>
+-> Add characteristics to different colored Mob/enemy players<br>
 
