@@ -16,6 +16,7 @@ RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 YELLOW = (255, 255,0)
+colors = [WHITE, BLACK, RED, GREEN, BLUE, YELLOW]
 
 # initialize pygame and create window
 pygame.init()
@@ -27,19 +28,20 @@ clock = pygame.time.Clock()
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image_orig = meteor_img
-        self.image_orig.set_colorkey(BLACK)
-        self.image = self.image_orig.copy()
+        self.image = pygame.transform.scale(player_img, (50,38))
+        self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
-        self.radius = int(self.rect.width *.80 /2)
+        self.image_orig = player_img
+        self.image = self.image_orig.copy()
+        self.radius = 20
         # pygame.draw.circle(self.image, RED, self.rect.center, self.radius)
-        self.rect.x = random.randrange(WIDTH - self.rect.width)
-        self.rect.y = random.randrange(-100,-40)
-        self.speedy = random.randrange(1,8)
-        self.speedx = random.randrange(-3,3)
+        self.rect.centerx = WIDTH / 2
+        self.rect.bottom = HEIGHT / 2
+        self.speedx = 0
         self.rot = 0
         self.rot_speed = random.randrange(-8,8)
-        self.last_update = pygame.time.get_ticks()
+
+
 
     def update(self):
         self.speedx = 0
@@ -51,10 +53,10 @@ class Player(pygame.sprite.Sprite):
             self.rot = (self.rot + self.rot_speed) % 360
             self.image = pygame.transform.rotate(self.image_orig, self.rot)
         self.rect.x += self.speedx
-        if self.rect.right > WIDTH:
-            self.rect.right = WIDTH
-        if self.rect.left < 0:
-            self.rect.left = 0
+        # if self.rect.right > WIDTH:
+        #     self.rect.right = WIDTH
+        # if self.rect.left < 0:
+        #     self.rect.left = 0
     def shoot(self):
         bullet = Bullet(self.rect.centerx, self.rect.top)
         all_sprites.add(bullet)
